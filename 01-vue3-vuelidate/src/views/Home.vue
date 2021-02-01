@@ -9,7 +9,7 @@
           type="text"
           class="form-control"
           :class="[$v.userForm.firstName.$error ? 'is-invalid': '']"
-          v-model="$v.userForm.firstName.$model"
+          v-model="userForm.firstName"
         />
         <div class="invalid-tooltip" v-for="(error, index) in $v.userForm.firstName.$errors" :key="index">
           {{error.$message}}

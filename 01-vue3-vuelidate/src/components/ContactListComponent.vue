@@ -15,7 +15,6 @@
     {{error.$message}}
   </div>
 </div>
-{{v}}
 </template>
 
 <script>
@@ -37,10 +36,6 @@ export default {
   emits: [
     'input'
   ],
-  data () {
-    console.log('[ContactListComponent] data method')
-    return {}
-  },
   methods: {
     handleInput: function (event) {
       this.v.mobileNumber.$touch()
