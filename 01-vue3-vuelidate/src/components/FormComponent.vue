@@ -6,6 +6,7 @@
       :v="$v.userForm.firstName"
       @input="onInputFirstName"
     ></FirstNameComponent>
+    <template v-if="userForm.contacts.length > 0">
       <ContactListComponent
         v-for="(contact, index) in userForm.contacts" v-bind:key="index"
         :value="contact.mobileNumber"
@@ -13,6 +14,7 @@
         :v="$v.userForm?.contacts[index]"
         @input="onInputContact"
       ></ContactListComponent>
+    </template>
     <div class="col-lg-6 position-relative">
       <button
       class="btn btn-primary"

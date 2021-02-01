@@ -15,7 +15,6 @@
     {{error.$message}}
   </div>
 </div>
-{{v}}
 </template>
 
 <script>
