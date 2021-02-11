@@ -18,7 +18,7 @@
     <div class="col-lg-6 position-relative">
       <button
       class="btn btn-primary"
-      @click="$v.userForm.$touch()"
+      @click="handleClick"
       >Verify</button>
     </div>
     <div class="col-lg-6 position-relative">
@@ -35,6 +35,7 @@
 import FirstNameComponent from '@/components/FirstNameComponent.vue'
 import ContactListComponent from '@/components/ContactListComponent.vue'
 import { required } from '@vuelidate/validators'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -85,11 +86,24 @@ export default {
       }
       return {
         firstName: Object.assign({}, this.$options.validationSchema().$firstName),
-        contacts: contactsRules
+        contacts: this.fetchContactRule
       }
-    }
+    },
+    ...mapGetters([
+      'fetchApiErrorResponse',
+      'fetchApiSchema',
+      'fetchContactRule'
+    ])
   },
   methods: {
+    ...mapActions([
+      'generateApiSchema',
+      'generateContactSchema',
+      'updateContactSchema'
+    ]),
+    ...mapMutations({
+      saveContactSchema: 'SAVE_CONTACT_API_SCHEMA' // map `this.add()` to `this.$store.commit('increment')`
+    }),
     onInputFirstName (value) {
       console.log('[FormComponent] onInputFirstName with value: ' + value)
       this.userForm.firstName = value
@@ -104,7 +118,64 @@ export default {
     addContact () {
       console.log('[FormComponent] addContact ')
       this.userForm.contacts.push({ mobileNumber: '' })
+      this.generateApiSchema(this.userForm.contacts)
+      const contactRules = this.createContactSchema()
+      this.generateContactSchema(contactRules)
+    },
+    createContactSchema () {
+      const contactResponse = this.fetchApiErrorResponse.contacts
+      const contactRules = []
+      for (let i = 0; i < contactResponse.length; i++) {
+        const contactSchema = Object.assign({}, this.$options.validationSchema().$contact)
+        for (const [key, obj] of Object.entries(contactSchema)) {
+          if (obj && (!obj.$validator || !obj.$message)) {
+            const validatorFn = this.$options.apiValidators(contactResponse[i])
+            const validatorMsgFn = this.$options.apiResponseMsg(contactResponse[i])
+            const CreateValidator = function (key, response, validatorFn, ValidatorMsgFn) {
+              return {
+                $validator: (value) => validatorFn(value)[key],
+                $message: () => validatorMsgFn()[key]
+              }
+            }
+            contactSchema[key].apiValidator = new CreateValidator(key, contactResponse[i], validatorFn, validatorMsgFn)
+          }
+        }
+        contactRules.push(contactSchema)
+      }
+      return contactRules
+    },
+    handleClick () {
+      console.log('Handle Click')
+      const contacts = this.fetchApiErrorResponse.contacts[0]
+      contacts.mobileNumber.$isValid = false
+      contacts.mobileNumber.$message = 'API Error Response'
+      // this.updateContactSchema({ contact: contacts, index: 0 })
+      this.$v.userForm.$touch()
     }
+  },
+  apiValidators: (response) => (values) => {
+    return new Proxy(response, {
+      set: function (obj, prop, value) {
+        obj[prop] = value || values
+        return true
+      },
+      get: function (obj, prop) {
+        console.log('[FormComponent] apiValidator | obj:' + JSON.stringify(obj) + ' | prop:' + prop)
+        return obj[prop].$isValid
+      }
+    })
+  },
+  apiResponseMsg: (response) => () => {
+    return new Proxy(response, {
+      set: function (obj, prop, value) {
+        obj[prop] = value
+        return true
+      },
+      get: function (obj, prop) {
+        console.log('[FormComponent] apiResponseMsg | obj:' + JSON.stringify(obj) + ' | prop:' + prop)
+        return obj[prop].$message
+      }
+    })
   }
 }
 </script>

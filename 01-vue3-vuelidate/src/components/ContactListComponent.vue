@@ -4,16 +4,18 @@
   <input
     type="text"
     class="form-control"
-    :class="[v.mobileNumber.$error ? 'is-invalid' : '']"
+    :class="[v.mobileNumber.$error ? 'is-invalid': '']"
     :value="value"
     :index="index"
     @input="handleInput"
     @blur="v.mobileNumber.$touch()"
   />
-  <div class="invalid-tooltip"
-    v-for="(error, index) in v.mobileNumber.$errors" :key="index">
-    {{error.$message}}
-  </div>
+  <ul class="invalid-tooltip" v-if="v.mobileNumber && v.mobileNumber.$error">
+    <li
+      v-for="(error, index) in v.mobileNumber.$errors" :key="index">
+      {{error.$message}}
+    </li>
+  </ul>
 </div>
 </template>
 
@@ -38,6 +40,8 @@ export default {
   ],
   methods: {
     handleInput: function (event) {
+      console.log(this.v.mobileNumber.$error)
+      console.log(this.v.mobileNumber.$errors)
       this.v.mobileNumber.$touch()
       console.log('[ContactListComponent] handleInput: ' + this.value)
       if (!this.v.mobileNumber.error) {
