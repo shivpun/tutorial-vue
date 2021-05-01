@@ -28,5 +28,5 @@
 ## Add [@vue/cli](https://v3.vuejs.org/guide/installation.html#cli)
 `npm install -g @vue/cli@next`
 
-## Add [@vue/cli](https://v3.vuejs.org/guide/installation.html#cli)
+## Add vue-loader@16.0.0 @vue/compiler-sfc
 `npm install -D vue-loader@16.0.0 @vue/compiler-sfc`
