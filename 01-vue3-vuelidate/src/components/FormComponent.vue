@@ -176,6 +176,26 @@ export default {
         return obj[prop].$message
       }
     })
+  },
+  setApiErrorResponse () {
+    const errors = [{
+      errorCode: 'company.accountNumber.MISSING',
+      fieldName: 'accountNumber',
+      errorMsg: 'Account Number missing'
+    }]
+    const apiMapping = {
+      saveContact: {
+        'company.accountNumber': 'contacts.idx.mobileNumber'
+      }
+    }
+    for (let i = 0; i < errors.length; i++) {
+      const error = errors[i]
+      const codes = error.errorCode.split('.').slice(-1, 1)
+      if (codes[codes.length - 1] === error.fieldName && codes.length > 1 && /^[0-9\s]*$/.test(codes[codes.length - 2])) {
+        const fieldName = apiMapping.saveContact[codes[codes.length - 3]] || error.fieldName
+        console.log(fieldName)
+      }
+    }
   }
 }
 </script>
