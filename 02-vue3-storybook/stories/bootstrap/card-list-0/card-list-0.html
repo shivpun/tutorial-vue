@@ -1,0 +1,5 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+<div class="col" v-for="item in cardList" style="padding: 15px;">
+    <card :label="item.label" :description="item.description" :amount="item.amount" :icon="item.icon" :shade="item.shade"></card>
+</div>
+</div>

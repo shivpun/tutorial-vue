@@ -1,0 +1,101 @@
+/*!
+ * Bootstrap v5.0.1 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+$enable-shadows: true;
+@import "../assets/scss/bootstrap";
+
+.card {
+    @include box-shadow($card-box-shadow);
+    z-index: 1000;
+}
+
+.widgets-icons-2 {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
+    font-size: 27px;
+    border-radius: 10px;
+}
+
+.bg-gradient-info {
+    background: #17ead9;
+    background: -webkit-linear-gradient( 
+45deg
+ , #17ead9, #6078ea)!important;
+    background: linear-gradient( 
+45deg
+ , #17ead9, #6078ea)!important;
+}
+
+.border-danger {
+    border-color: #fd3550!important;
+}
+
+.bg-gradient-danger {
+    background: #f54ea2;
+    background: -webkit-linear-gradient( 
+45deg
+ , #f54ea2, #ff7676)!important;
+    background: linear-gradient( 
+45deg
+ , #f54ea2, #ff7676)!important;
+}
+
+.bg-gradient-group {
+    background: #ffdf40;
+    background: -webkit-linear-gradient( 
+45deg
+ , #ffdf40, #ff8359)!important;
+    background: linear-gradient( 
+45deg
+ , #ffdf40, #ff8359)!important;
+}
+
+.bg-gradient-chart {
+    background: #00b09b;
+    background: -webkit-linear-gradient( 
+45deg
+ , #00b09b, #96c93d)!important;
+    background: linear-gradient( 
+45deg
+ , #00b09b, #96c93d)!important;
+}
+
+.border-chart {
+    border-color: #15ca20!important;
+}
+
+.border-group {
+    border-color: #ffc107!important;
+}
+
+.text-chart {
+    color: #15ca20!important;
+}
+.text-group {
+    color: #ffc107!important;
+}
+
+.introjs-helperLayer {
+    position: absolute;
+    z-index: 9;
+    border-radius: 4px;
+    transition: .3s ease-out;
+}
+.overlay {
+    box-shadow: rgba(33, 33, 33, 80%) 0px 0px 1px 2px, rgba(33, 33, 33, .50) 0px 0px 0px 5000px;
+    opacity: 1;
+    width: 310px;
+    height: 407px;
+    top: 1187.02px;
+    left: 525.667px;
+}

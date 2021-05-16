@@ -1,0 +1,17 @@
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<div class="overlay introjs-helperLayer" style="display: none;"></div>
+<div v-bind:className="'card radius-10 border-start border-0 border-3 border-'+ shade">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            <div>
+                <p :className="'mb-0 text-'+ shade">{{label}}</p>
+                <h4 :className="'my-1 text-'+ shade">{{amount}}</h4>
+                <p class="mb-0 font-13">{{description}}</p>
+            </div>
+            <div :className="'widgets-icons-2 rounded-circle text-white ms-auto bg-gradient-'+ shade">
+                <i class="bx" :class="icon"></i>
+                <!--<box-icon type="solid" :name="icon"></box-icon>-->
+            </div>
+        </div>
+    </div>
+ </div>
