@@ -1,7 +1,7 @@
-import Card from './card-0.vue';
+import Card from './card-1.vue';
 
 export default {
-    title: 'Bootstrap/Card',
+    title: 'Bootstrap/Card1',
     component: Card,
   };
 
