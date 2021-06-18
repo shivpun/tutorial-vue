@@ -1,11 +1,4 @@
-# 01-vuelidate
-
-## Create Vue 3 Project
-```
-vue create 03-vue3-fileupload
-```
-
-### Warning: name can no longer contain capital letters
+# 03-vue3-fileupload
 
 ## Project setup
 ```
@@ -39,9 +32,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-See [Documentation Reference](https://vuelidate-next.netlify.app/).
-
-See [Parent Child components validation via vuelidate](https://codesandbox.io/s/nnxy0wjpwm)
-
-See [Multi-Step validation via vuelidate](https://codesandbox.io/s/o979o4myjq)

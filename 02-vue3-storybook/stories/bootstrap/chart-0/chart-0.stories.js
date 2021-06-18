@@ -1,7 +1,7 @@
 import Chart from './chart-0.vue';
 
 export default {
-    title: 'Bootstrap/Chart',
+    title: 'Bootstrap/Chart0',
     component: Chart,
   };
 
