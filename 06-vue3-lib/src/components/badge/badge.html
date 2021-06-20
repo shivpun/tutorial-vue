@@ -1,0 +1,7 @@
+<component :is="tag"
+    class="badge"
+    :class="[`bg-${palette}`, `rounded-${variant}`]">
+    <slot>
+        <i v-if="icon" :class="icon"></i>
+    </slot>
+</component>

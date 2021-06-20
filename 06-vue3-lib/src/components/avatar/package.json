@@ -1,0 +1,30 @@
+{
+    "name": "@vue3/avatar",
+    "version": "1.0.0",
+    "meta": {
+      "title": "Avatar",
+      "description": "Small and adaptive tag for adding context to just about any content.",
+      "components": [
+        {
+          "component": "Avatar",
+          "props": [
+            {
+              "prop": "variant",
+              "description": "When set to 'true', renders the badge in pill, circle style"
+            },
+            {
+              "prop": "position",
+              "description": "CSS3 position (relative|absolute)",
+              "example": [""]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Content to place in the badge"
+            }
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,30 @@
+{
+    "name": "@vue3/badge",
+    "version": "1.0.0",
+    "meta": {
+      "title": "Badge",
+      "description": "Small and adaptive tag for adding context to just about any content.",
+      "components": [
+        {
+          "component": "Badge",
+          "props": [
+            {
+              "prop": "variant",
+              "description": "When set to 'true', renders the badge in pill, circle style"
+            },
+            {
+              "prop": "palette",
+              "description": "Applies one of the Bootstrap theme color variants to the component",
+              "example": [""]
+            }
+          ],
+          "slots": [
+            {
+              "name": "default",
+              "description": "Content to place in the badge"
+            }
+          ]
+        }
+      ]
+    }
+  }

@@ -1,0 +1,7 @@
+<component :is="tag"
+    class="badge"
+    :class="[`${status}`, `position-${position}`]">
+    <slot>
+       <img v-if="icon" :src="icon" :width="width" :height="height" class="rounded-circle"/>
+    </slot>
+</component>

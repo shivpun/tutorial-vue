@@ -2,10 +2,14 @@
 
 ## Create Vue 3 Project
 ```
-vue create 03-vue3-fileupload
+vue create 01-vue3-vuelidate
 ```
-
 ### Warning: name can no longer contain capital letters
+
+## Add vuelidate to Project
+```
+npm install @vuelidate/core @vuelidate/validators
+```
 
 ## Project setup
 ```
