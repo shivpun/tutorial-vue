@@ -7,6 +7,14 @@
     <avatar :icon="avartar_6" :status="'online'"></avatar>
     <br />
     <div class="row">
+      <div class="col-xl-9 mx-auto" style="margin: 30px">
+        <card :headerClasses="'tableTitle'">
+          <template v-slot:header>
+            <h4 class="card-title">Simple Table</h4>
+          </template>
+          <Table :columns="tableHeader" :data="tableData"></Table>
+        </card>
+      </div>
       <div class="col-xl-9 mx-auto">
         <card shadow>
           <div class="p-4 border rounded">
@@ -87,7 +95,13 @@
                   class="form-control"
                   aria-label="file example"
                   required=""
+                  ref="fileInput"
+                  @change.prevent="onChangeFile"
                 />
+                <card v-if="url">
+                  <button class="btn">X</button>
+                  <img :src="url" width="250" height="250" />
+                </card>
                 <div class="invalid-feedback">
                   Example invalid form file feedback
                 </div>
@@ -109,20 +123,107 @@
 import { Badge } from "@/components/badge";
 import { Avatar } from "@/components/avatar";
 import { Card } from "@/components/card";
+import { Table } from "@/components/table";
+
 export default {
   name: "HelloWorld",
   components: {
     Badge,
     Avatar,
     Card,
+    Table,
+  },
+  props: {
+    operation: {
+      type: String,
+      default: "",
+    },
   },
   data() {
     return {
       avartar_6: "/img/avatar-6.3b150d85.png",
+      url: "",
+      selectedFile: "",
+      tableHeader: ["Name", "Description"],
+      tableData: [
+        {
+          name: "OCR",
+          description: "Ocr Agreement",
+        },
+        {
+          name: "ATG",
+          description: "Ocr Agreement",
+        },
+      ],
+      post: "",
     };
+  },
+  methods: {
+    onChangeFile() {
+      const input = this.$refs.fileInput;
+      this.selectedFile = input.files[0];
+      this.url = URL.createObjectURL(this.selectedFile);
+    },
+    getPost(a, b) {
+      console.log("getPost!!" + a + "|b" + b + "|operation" + this.operation);
+    },
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("beforeRouteEnter | to:");
+    const getPost = (vm) =>
+      vm.getPost(to.params.id, (err, post) => {
+        console.log(post);
+        //next((vm) => vm.setData(err, post));
+      });
+    next(getPost);
+    //next();
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.card [class*="card-header-"] {
+  margin: 0 15px;
+  padding: 0;
+  position: relative;
+}
+.card
+  [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
+  border-radius: 3px;
+  margin-top: -20px;
+  padding: 15px;
+}
+.card .card-header {
+  border-radius: 3px;
+  margin-top: -20px;
+  padding: 15px;
+}
+</style>

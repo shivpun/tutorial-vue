@@ -1,0 +1,41 @@
+<!--
+https://bestjquery.com/tutorial/table-style/demo5/
+https://www.bestjquery.com/labs/table-style-5/
+-->
+<div class="table-responsive">
+<table class="table tablesorter" :class="tableClass">
+    <thead :class="theadClasses">
+      <tr>
+        <slot name="columns" :columns="columns">
+          <th scope="col" class="text-uppercase" v-for="column in columns" :key="column">{{ column }}</th>
+        </slot>
+        <th scope="col" style="width: 8rem;" class="text-center text-uppercase">Action</th>
+      </tr>
+    </thead>
+    <tbody :class="tbodyClasses">
+      <tr v-for="(item, index) in data" :key="index">
+        <slot :item="item">
+          <td class="align-middle" scope="row" v-for="column in columns" :key="column">
+            <template v-if="hasValue(item, column)">
+              {{ itemValue(item, column) }}
+            </template>
+          </td>
+          <td scope="row">
+            <ul class="list-inline action-list">
+              <li>
+                <a class="btn">
+                  <i class="bi bi-pencil-square text-primary"></i>
+                </a>
+              </li>
+              <li>
+                <a class="btn">
+                  <i class="bi bi-trash-fill text-danger"></i>
+                </a>
+              </li>
+            </ul>
+          </td>
+        </slot>
+      </tr>
+    </tbody>
+  </table>
+</div>
