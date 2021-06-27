@@ -1,0 +1,85 @@
+@mixin bg-list-group-item {
+    content: '';
+    position: absolute;
+    bottom: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff;
+}
+.list-group-item.bg-blue::before {
+    @include bg-list-group-item;
+    background: var(--bs-blue);
+}
+.list-group-item.bg-purple::before {
+    @include bg-list-group-item;
+    background: #523249;
+}
+.list-group-item.bg-pink::before {
+    @include bg-list-group-item;
+    background: var(--bs-pink);
+}
+.list-group-item.bg-orange::before {
+    @include bg-list-group-item;
+    background: var(--bs-orange);
+}
+.list-group-item.bg-teal::before {
+    @include bg-list-group-item;
+    background: var(--bs-teal);
+}
+.list-group-item.bg-yellow::before {
+    @include bg-list-group-item;
+    background: var(--bs-yellow);
+}
+.list-group-item.bg-dark::before {
+    @include bg-list-group-item;
+    background: var(--bs-dark);
+}
+.list-group-item.bg-light::before {
+    @include bg-list-group-item;
+    background: #388659;
+}
+.list-group-item.bg-indigo::before {
+    @include bg-list-group-item;
+    background: var(--bs-indigo);
+}
+
+.instrument{
+    margin-left: 20px;
+}
+
+  .card-list-enter-active {
+    transition: all 0.3s ease-out;
+    
+  }
+  
+  .card-list-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+.card-list-enter-from{
+    transform: translateX(-30px);
+}
+.card-list-leave-to {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.card-primary {
+  max-width: 82%;
+}
+
+.card-img-overlay.side-menu {
+    left: 100%;
+    background-color: #fff;
+    z-index: -1;
+    padding: 0;
+}
+
+.card-img-overlay .card-footer {
+    padding: 0;
+}
+
+.float-end {
+    padding: 0;
+}
