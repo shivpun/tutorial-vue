@@ -1,44 +1,44 @@
 [
   {
     "name": "SBI",
-    "deliveryPercent": 23,
-    "deliveryValue": 34645,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 29.83,
+    "deliveryValue": 8914078,
+    "reportDate": "25-Jun-2021"
   },
   {
     "name": "ICICI Bank",
-    "deliveryPercent": 78,
-    "deliveryValue": 34235,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 53.12,
+    "deliveryValue": 7854702,
+    "reportDate": "25-Jun-2021"
   },
   {
     "name": "Axis Bank",
-    "deliveryPercent": 45,
-    "deliveryValue": 3455,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 43.26,
+    "deliveryValue": 4831949,
+    "reportDate": "25-Jun-2021"
   },  
   {
     "name": "HDFC Bank",
-    "deliveryPercent": 43,
-    "deliveryValue": 5645,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 62.46,
+    "deliveryValue": 3242646,
+    "reportDate": "25-Jun-2021"
   },
   {
     "name": "IndusInd Bank",
-    "deliveryPercent": 93,
-    "deliveryValue": 7845,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 25.67,
+    "deliveryValue": 898353,
+    "reportDate": "25-Jun-2021"
   },
   {
     "name": "Bandhan Bank",
-    "deliveryPercent": 12,
-    "deliveryValue": 467,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 44.09,
+    "deliveryValue": 1751036,
+    "reportDate": "25-Jun-2021"
   },
   {
     "name": "Kotak Mahindra",
-    "deliveryPercent": 573,
-    "deliveryValue": 7545,
-    "reportDate": "12-May-2021"
+    "deliveryPercent": 59.58,
+    "deliveryValue": 5706280,
+    "reportDate": "25-Jun-2021"
   }
 ]

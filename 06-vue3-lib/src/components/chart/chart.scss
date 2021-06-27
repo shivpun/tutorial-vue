@@ -13,15 +13,15 @@
 }
 .list-group-item.bg-purple::before {
     @include bg-list-group-item;
-    background: #523249;
+    background: #6f42c1;
 }
 .list-group-item.bg-pink::before {
     @include bg-list-group-item;
-    background: var(--bs-pink);
+    background: #d63384;
 }
 .list-group-item.bg-orange::before {
     @include bg-list-group-item;
-    background: var(--bs-orange);
+    background: #fd7e14;
 }
 .list-group-item.bg-teal::before {
     @include bg-list-group-item;
@@ -29,11 +29,11 @@
 }
 .list-group-item.bg-yellow::before {
     @include bg-list-group-item;
-    background: var(--bs-yellow);
+    background: #ffc107;
 }
-.list-group-item.bg-dark::before {
+.list-group-item.bg-dark01::before {
     @include bg-list-group-item;
-    background: var(--bs-dark);
+    background: #003459;
 }
 .list-group-item.bg-light::before {
     @include bg-list-group-item;
