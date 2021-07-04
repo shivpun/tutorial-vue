@@ -1,0 +1,36 @@
+<div class="container-fluid mx-5">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col position-relative">
+              <auto-complete
+              @onSelect="onSelectq"
+              @input="handleInput"
+              :searchText="searchText"
+              :results="filterResults"
+            />
+            </div>
+            <div class="col position-relative">
+              <auto-complete
+              @onSelect="onSelect"
+              @input="handleInput"
+              :searchText="searchText"
+              :results="filterResults"
+            />
+            </div>
+            <div class="col position-relative">
+              <auto-complete
+              @onSelect="onSelect"
+              @input="handleInput"
+              :searchText="searchText"
+              :results="filterResults"
+            />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

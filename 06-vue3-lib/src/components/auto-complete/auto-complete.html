@@ -1,0 +1,31 @@
+<div class="input-group">
+  <input
+    ref="autocompleteRef"
+    class="form-control"
+    :placeholder="placeholder"
+    :class="{ 'is-invalid': searchTextExist && results && results.length == 0 }"
+    type="text"
+    :value="searchText"
+    @input="handleInput"
+    @focus="displayResults"
+    @blur="hideResults"
+  />
+  <button class="input-group-append btn btn-primary"
+    :disabled="!enableSearchButton"
+    @click.prevent="onSearchText">
+    <i class="bi bi-search"></i>
+  </button>
+  <ul class="list-group list-group-flush" v-if="shouldShowResults && results && results.length > 0">
+    <li class="list-group-item"
+      v-for="(item, index) in filteredResults" :key="`item-${index}`"
+      @mousedown.prevent
+      @click.prevent="clickItem(item)">
+      {{ displayItem(item) }}
+    </li>
+  </ul>
+  <ul class="list-group list-group-flush" v-if="searchTextExist && results && results.length == 0">
+    <li class="list-group-item">
+      No Data Found
+    </li>
+  </ul>
+</div>
