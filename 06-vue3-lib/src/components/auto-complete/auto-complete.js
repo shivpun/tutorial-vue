@@ -1,5 +1,5 @@
 import { ref, computed } from "vue";
-import { isEmptyText } from "../../utils/filter";
+import { fetchName, isEmptyText } from "@/utils/filter";
 export default {
   name: "AutoComplete",
   props: {
@@ -25,9 +25,7 @@ export default {
     },
     displayItem: {
       type: Function,
-      default: (item) => {
-        return typeof item === "string" ? item : item.name;
-      },
+      default: (item) => fetchName(item),
     },
   },
   emits: ["input", "onSelect", "onSearch"],

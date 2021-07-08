@@ -10,11 +10,13 @@
     @focus="displayResults"
     @blur="hideResults"
   />
-  <button class="input-group-append btn btn-primary"
+  <button class="input-group-append btn btn-primary dropdown"
     :disabled="!enableSearchButton"
     @click.prevent="onSearchText">
-    <i class="bi bi-search"></i>
+    <!--<i class="bi bi-search"></i>-->
+    <i class="bi bi-caret-down-fill"></i>
   </button>
+  
   <ul class="list-group list-group-flush" v-if="shouldShowResults && results && results.length > 0">
     <li class="list-group-item"
       v-for="(item, index) in filteredResults" :key="`item-${index}`"

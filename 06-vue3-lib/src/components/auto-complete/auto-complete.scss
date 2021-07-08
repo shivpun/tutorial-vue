@@ -5,6 +5,51 @@
   box-shadow: 0 2px 2px rgba(0,0,0,.16);
 }
 
+.form-control.is-invalid {
+  background-position: right calc(0.895em + 0.975rem) center !important;
+}
+
 .input-group-append.btn:disabled {
   cursor: not-allowed;
+}
+
+.input-group-append.dropdown, .input-group-append.dropdown:disabled {
+  transform: translateX(-40px);
+  z-index: 10;
+  color: black;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.spinner {
+  -webkit-animation: spinner 1s infinite linear;
+          animation: spinner 1s infinite linear;
+  display: block;
+  padding: 0 0.25em;
+}
+
+#search.loading button {
+  display: none;
+}
+#search.loading .spinner {
+  display: block;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

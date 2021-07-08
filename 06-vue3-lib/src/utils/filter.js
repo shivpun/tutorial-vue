@@ -9,8 +9,12 @@ export const filterText = (text, dataList) => {
   if (isEmptyText(text)) {
     return dataList;
   }
-  return dataList.filter((target) => containText(text, target));
+  return dataList.filter((target) => containText(text, fetchName(target)));
 };
+
+export const fetchName = (item) => {
+  return typeof item === "string" ? item : item.name;
+}
 
 export const isEmptyText = (value) => {
   return (
