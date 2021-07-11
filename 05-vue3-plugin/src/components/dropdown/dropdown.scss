@@ -1,0 +1,421 @@
+$input-group-addon-border-color:#9e9e9e;
+
+// scss-docs-start border-variables
+$border-width: 1px !default;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+) !default;
+
+
+// scss-docs-end border-variables
+// Grays
+$white: #fff !default;
+$gray-50: #fbfbfb !default;
+$gray-100: #f5f5f5 !default;
+$gray-200: #eeeeee !default;
+$gray-300: #e0e0e0 !default;
+$gray-400: #bdbdbd !default;
+$gray-500: #9e9e9e !default;
+$gray-600: #757575 !default;
+$gray-700: #616161 !default;
+$gray-800: #4f4f4f !default;
+$gray-900: #262626 !default;
+$black: #000 !default;
+// Theme colors
+$primary: #1266f1 !default;
+$secondary: #b23cfd !default;
+$success: #00b74a !default;
+$info: #39c0ed !default;
+$warning: #ffa900 !default;
+$danger: #f93154 !default;
+$light: $gray-50 !default;
+$dark: $gray-900 !default;
+$invalid: #dc3545 !default;
+
+$border-color: $gray-300 !default;
+// Forms
+//
+// Material styling for outline forms border, label, size
+
+$input-padding-top: 0.33em !default;
+$input-padding-bottom: $input-padding-top !default;
+$input-padding-left: 0.75em !default;
+$input-padding-right: $input-padding-left !default;
+$input-transition: all 0.2s linear !default;
+
+$form-label-left: 0.75rem !default;
+$form-label-padding-top: 0.37rem !default;
+$form-label-transition: all 0.2s ease-out !default;
+$form-label-color: rgba(0, 0, 0, 0.6) !default;
+
+$input-focus-active-label-transform: translateY(-1rem) translateY(0.1rem) scale(0.8) !default;
+$input-focus-label-color: $primary !default;
+$input-focus-border-width: 0.125rem !default;
+$input-focus-border-color: $primary !default;
+$input-disabled-background-color: #e9ecef !default;
+
+$input-padding-left-lg: 0.75em !default;
+$input-padding-right-lg: $input-padding-left-lg !default;
+$input-font-size-lg: 1rem !default;
+$input-line-height-lg: 2.15 !default;
+$input-focus-active-label-transform-lg: translateY(-1.25rem) translateY(0.1rem) scale(0.8) !default;
+
+$input-padding-left-sm: 0.99em !default;
+$input-padding-right-sm: $input-padding-left-sm !default;
+$input-padding-top-sm: 0.43em !default;
+$input-padding-bottom-sm: 0.35em !default;
+$input-font-size-sm: 0.775rem !default;
+$input-line-height-sm: 1.6 !default;
+$input-focus-active-label-transform-sm: translateY(-0.85rem) translateY(0.1rem) scale(0.8) !default;
+
+$form-notch-div-border-color: #bdbdbd !default;
+$form-notch-leading-width: 0.5rem !default;
+$form-notch-leading-border-radius: 0.25rem !default;
+$form-notch-middle-max-width: 1rem !default;
+$form-notch-trailing-border-radius: $form-notch-leading-border-radius !default;
+
+$form-label-padding-top-lg: 0.7rem !default;
+$form-label-padding-top-sm: 0.33rem !default;
+$form-label-font-size-sm: 0.775rem !default;
+
+$form-white-input-color: $white !default;
+$form-white-label-color: $gray-50 !default;
+$form-white-notch-div-border-color: $gray-50 !default;
+$form-white-input-focus-label-color: $white !default;
+$form-white-input-focus-border-color: $white !default;
+
+@mixin border($exclude) {
+}
+
+.form-outline {
+  .form-control {
+    ~ .list-group.list-group-flush {
+      position: absolute;
+      margin-top: 6px;
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 2px 2px rgba(0,0,0,.16);
+    }
+    ~ .list-group.list-group-flush .list-group-item.is-invalid {
+      cursor: default;
+      color: $invalid;
+      margin-top: .25rem;
+      font-size: .875em;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+    ~ .list-group.list-group-flush li.list-group-item.is-invali {
+      list-style-type: disc;
+    }
+    ~ .list-group.list-group-flush.invalid-feedback {
+      display: block;
+      box-shadow: none;
+    }
+  }
+}
+
+
+.input-group-append {
+  transform: translateX(-10px) !important;
+}
+.form-notch-trailing {
+  border-right: none !important;
+}
+
+/*.form-control.dropdown~*/.input-group-append .input-group-text {
+  z-index: 9;
+  border: none;
+  border-bottom: $border-width solid $form-notch-div-border-color;
+  border-top: $border-width solid $form-notch-div-border-color;
+  border-right: $border-width solid $form-notch-div-border-color;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.form-control.dropdown {
+  border: none;
+  border-bottom: $input-focus-border-width solid $form-notch-div-border-color;
+  border-top: $input-focus-border-width solid $form-notch-div-border-color;
+  border-left: $input-focus-border-width solid $form-notch-div-border-color;
+}
+
+.input-group-append .input-group-text.focused {
+  border-color: $input-focus-border-color;
+  border-top: $input-focus-border-width solid $input-focus-border-color;
+  border-bottom: $input-focus-border-width solid $input-focus-border-color;
+  border-right: $input-focus-border-width solid $input-focus-border-color;
+}
+
+.input-group-append .input-group-text.is-invalid {
+  border-color: $invalid;
+}
+
+.form-control-label {
+  position: absolute;
+  z-index: 9;
+  -webkit-transform: translateY(-1rem) translateY(.1rem) scale(.8);
+  transform: translateY(-1rem) translateY(.1rem) scale(.8);
+  margin-left: 8px !important;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.form-control {
+  min-height: auto;
+  padding-top: 4px;
+  padding-bottom: 3.28px;
+  transition: all 0.1s linear;
+  &:focus {
+    box-shadow: none;
+    transition: all 0.1s linear;
+    border-color: #1266f1;
+    box-shadow: inset 0px 0px 0px 1px #1266f1;
+  }
+  &.form-control-sm {
+    font-size: 0.775rem;
+    line-height: 1.5;
+  }
+  &.form-control-lg {
+    line-height: 2.15;
+    border-radius: 0.25rem;
+  }
+}
+
+.form-outline {
+  .form-control {
+    &.is-invalid {
+      border-color: $invalid;
+      ~ .form-label {
+        color: $invalid;
+      }
+      ~ .form-notch {
+        div {
+          border-color: $invalid;
+        }
+      }
+      &:focus {
+        ~ .form-label {
+          color: $invalid;
+        }
+        ~ .form-notch {
+          div {
+            border-color: $invalid;
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-outline {
+  position: relative;
+
+  .form-helper {
+    width: 100%;
+    position: absolute;
+    font-size: 0.875em;
+    color: #757575;
+    .form-counter {
+      text-align: right;
+    }
+  }
+
+  .trailing {
+    position: absolute;
+    right: 10px;
+    left: initial;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .form-icon-trailing {
+    padding-right: 2rem !important;
+  }
+
+  .form-control {
+    min-height: auto;
+    padding-top: $input-padding-top;
+    padding-bottom: $input-padding-bottom;
+    padding-left: $input-padding-left;
+    padding-right: $input-padding-right;
+    border: 0;
+    background: transparent;
+    transition: $input-transition;
+    ~ .form-label {
+      position: absolute;
+      top: 0;
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      left: $form-label-left;
+      padding-top: $form-label-padding-top;
+      pointer-events: none;
+      transform-origin: 0 0;
+      transition: $form-label-transition;
+      color: $form-label-color;
+      margin-bottom: 0;
+    }
+    ~ .form-notch {
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      text-align: left;
+      pointer-events: none;
+      div {
+        pointer-events: none;
+        border: $border-width solid;
+        border-color: $form-notch-div-border-color;
+        box-sizing: border-box;
+        background: transparent;
+      }
+      .form-notch-leading {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: $form-notch-leading-width;
+        border-right: none;
+        border-radius: $form-notch-leading-border-radius 0 0 $form-notch-leading-border-radius;
+      }
+      .form-notch-middle {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: calc(100% - #{$form-notch-middle-max-width});
+        height: 100%;
+        border-right: none;
+        border-left: none;
+      }
+      .form-notch-trailing {
+        flex-grow: 1;
+        height: 100%;
+        border-left: none;
+        //border-radius: 0 $form-notch-trailing-border-radius $form-notch-trailing-border-radius 0;
+      }
+    }
+    &:not(.placeholder-active)::placeholder {
+      opacity: 0;
+    }
+    &:focus,
+    &.active {
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+    &:focus {
+      box-shadow: none !important;
+    }
+    &:focus ~ .form-label,
+    &.active ~ .form-label {
+      transform: $input-focus-active-label-transform;
+    }
+    &:focus ~ .form-label {
+      color: $input-focus-label-color;
+    }
+    &:focus ~ .form-notch .form-notch-middle,
+    &.active ~ .form-notch .form-notch-middle {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      transition: $input-transition;
+    }
+    &:focus ~ .form-notch .form-notch-middle {
+      border-bottom: $input-focus-border-width solid;
+      border-color: $input-focus-border-color;
+    }
+    &:focus ~ .form-notch .form-notch-leading,
+    &.active ~ .form-notch .form-notch-leading {
+      border-right: none;
+      transition: $input-transition;
+    }
+    &:focus ~ .form-notch .form-notch-leading {
+      border-top: $input-focus-border-width solid $input-focus-border-color;
+      border-bottom: $input-focus-border-width solid $input-focus-border-color;
+      border-left: $input-focus-border-width solid $input-focus-border-color;
+    }
+    &:focus ~ .form-notch .form-notch-trailing,
+    &.active ~ .form-notch .form-notch-trailing {
+      border-left: none;
+      transition: $input-transition;
+    }
+    &:focus ~ .form-notch .form-notch-trailing {
+      border-top: $input-focus-border-width solid $input-focus-border-color;
+      border-bottom: $input-focus-border-width solid $input-focus-border-color;
+      border-right: $input-focus-border-width solid $input-focus-border-color;
+    }
+    &:disabled,
+    &.disabled,
+    &[readonly] {
+      background-color: $input-disabled-background-color;
+    }
+    &.form-control-lg {
+      font-size: $input-font-size-lg;
+      line-height: $input-line-height-lg;
+      padding-left: $input-padding-left-lg;
+      padding-right: $input-padding-right-lg;
+      ~ .form-label {
+        padding-top: $form-label-padding-top-lg;
+      }
+      &:focus ~ .form-label,
+      &.active ~ .form-label {
+        transform: $input-focus-active-label-transform-lg;
+      }
+    }
+    &.form-control-sm {
+      padding-left: $input-padding-left-sm;
+      padding-right: $input-padding-right-sm;
+      padding-top: $input-padding-top-sm;
+      padding-bottom: $input-padding-bottom-sm;
+      font-size: $input-font-size-sm;
+      line-height: $input-line-height-sm;
+      ~ .form-label {
+        padding-top: $form-label-padding-top-sm;
+        font-size: $form-label-font-size-sm;
+      }
+      &:focus ~ .form-label,
+      &.active ~ .form-label {
+        transform: $input-focus-active-label-transform-sm;
+      }
+    }
+  }
+
+  &.form-white {
+    .form-control {
+      color: $form-white-input-color;
+      ~ .form-label {
+        color: $form-white-label-color;
+      }
+      ~ .form-notch {
+        div {
+          border-color: $form-white-notch-div-border-color;
+        }
+      }
+      &:focus ~ .form-label {
+        color: $form-white-input-focus-label-color;
+      }
+      &:focus ~ .form-notch .form-notch-middle {
+        border-color: $form-white-input-focus-border-color;
+      }
+      &:focus ~ .form-notch .form-notch-leading {
+        border-top: $input-focus-border-width solid $form-white-input-focus-border-color;
+        border-bottom: $input-focus-border-width solid $form-white-input-focus-border-color;
+        border-left: $input-focus-border-width solid $form-white-input-focus-border-color;
+      }
+      &:focus ~ .form-notch .form-notch-trailing {
+        border-color: $form-white-input-focus-border-color;
+      }
+    }
+  }
+}

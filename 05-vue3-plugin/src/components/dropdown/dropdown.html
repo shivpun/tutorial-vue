@@ -1,0 +1,59 @@
+<div class="input-group my-3">
+  <div class="form-outline" ref="dropdownInputGroupRefId">
+    <input id="test"
+      type="text" 
+      class="form-control"
+      :class="{
+        'active': searchTextLength,
+        'is-invalid': !isValid
+      }"
+      :value="searchText"
+      @focus="onFocus"
+      @input="onInput"
+      @blur="onBlur"/>
+    <label class="form-label" for="test" ref="labelRefId" v-show="label">{{ label }}</label>
+    <div class="form-notch">
+      <div class="form-notch-leading" :style="`width:`+ leadingNotch + `px;`"></div>
+      <div class="form-notch-middle"  :style="`width:`+ middleNotch +`px;`"></div>
+      <div class="form-notch-trailing"></div>
+    </div>
+    <ul class="list-group list-group-flush"
+      :style="`width:`+ dropdownItemWidth + `px;`"
+      :class="{
+        'invalid-feedback': !isValid,
+        'valid-feedback': isValid
+      }"
+      v-if="!isValid">
+      <li class="list-group-item"
+        :class="{
+          'is-invalid': !isValid
+        }"
+        v-for="(error, index) in filteredResults" :key="`item-${index}`"
+        @mousedown.prevent>
+        {{ displayErrorMessage(error) }}
+      </li>
+    </ul>
+    <ul class="list-group list-group-flush shadow" 
+      v-if="shouldShowResults && isValid && filteredResults && filteredResults.length > 0" 
+      :style="`width:`+ dropdownItemWidth + `px`">
+      <li class="list-group-item"
+        v-for="(item, index) in filteredResults" :key="`item-${index}`"
+        @mousedown.prevent
+        @click.prevent="clickItem(item)">
+        {{ displayItem(item) }}
+      </li>
+    </ul>
+  </div>
+  <div class="input-group-append" ref="dropdownButtonRefId">
+    <span class="input-group-text"
+      :class="{
+        'focused': isFocus,
+        'is-invalid': !isValid
+      }">
+      <i class="bi bi-caret-down-fill"></i>
+    </span>
+  </div>
+</div>
+
+
+{{ shouldShowResults }}
